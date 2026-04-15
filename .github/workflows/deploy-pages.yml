@@ -28,14 +28,14 @@ jobs:
         with:
           node-version: 24
           cache: "npm"
-          cache-dependency-path: sgzhd_helper/package-lock.json
+          cache-dependency-path: homepage/package-lock.json
 
       - name: Install (subproject)
-        working-directory: sgzhd_helper
+        working-directory: homepage
         run: npm ci
 
       - name: Build (subproject)
-        working-directory: sgzhd_helper
+        working-directory: homepage
         run: npm run build
 
       - name: Configure Pages
@@ -44,7 +44,7 @@ jobs:
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4
         with:
-          path: sgzhd_helper/dist
+          path: homepage/dist
 
       - name: Deploy
         id: deployment
