@@ -28,14 +28,14 @@ jobs:
         with:
           node-version: 24
           cache: "npm"
-          cache-dependency-path: homepage/package-lock.json
+          cache-dependency-path: sgzhd_helper/package-lock.json
 
       - name: Install (subproject)
-        working-directory: homepage
+        working-directory: sgzhd_helper
         run: npm ci
 
       - name: Build (subproject)
-        working-directory: homepage
+        working-directory: sgzhd_helper
         run: npm run build
 
       - name: Configure Pages
@@ -49,3 +49,8 @@ jobs:
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          publish_dir: ./homepage/dist
+          publish_branch: gh-pages
+          keep_files: false
+          token: ${{ secrets.GITHUB_TOKEN }}
