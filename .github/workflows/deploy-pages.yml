@@ -49,8 +49,3 @@ jobs:
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
-        with:
-          publish_dir: ./homepage/dist
-          publish_branch: gh-pages
-          keep_files: false
-          token: ${{ secrets.GITHUB_TOKEN }}
